@@ -1,0 +1,44 @@
+# Logs
+logs
+phase2/filestore-web/logs
+phase3/filestore-web/logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+phase2/filestore-web/node_modules
+phase3/filestore-web/node_modules
+dist
+phase2/filestore-web/dist
+phase3/filestore-web/dist
+dist-ssr
+phase2/filestore-web/dist-ssr
+phase3/filestore-web/dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+phase2/filestore-api/.vscode/*
+phase2/filestore-web/.vscode/*
+phase3/filestore-api/.vscode/*
+phase3/filestore-web/.vscode/*
+!.vscode/extensions.json
+.idea
+phase2/filestore-api/.idea
+phase2/filestore-web/.idea
+phase3/filestore-api/.idea
+phase3/filestore-web/.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# File tmp
+phase3/file_tmp

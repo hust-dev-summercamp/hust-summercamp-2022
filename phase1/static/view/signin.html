@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script lang="javascript">
+    </script>
+</head>
+
+<body>
+    <form>
+        <div style="width:500px;margin:10px auto;text-align: center;">
+            <div style="font-size:28px;font-weight:bold;margin:0px auto;">用户登录</div>
+            <br />
+            <table style="width:100%;text-align: left;">
+                <tbody>
+                    <tr style="margin-bottom: 20px;">
+                        <td>
+                            <span class="p">*</span>
+                            <label for="username" class="l"> 用户名:</label>
+                        </td>
+                        <td>
+                            <input id="username" type="text" style="height:30px;width:250px;padding-right:50px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                        <td></td>
+                    </tr>
+                    <tr style="margin-bottom: 20px;">
+                        <td>
+                            <span class="p">*</span>
+                            <label for="password" class="l"> 密码:</label>
+                        </td>
+                        <td>
+                            <input id="password" type="text" style="height:30px;width:250px;padding-right:50px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input class="btn btn-success" type="button" style="margin:0 auto;width:250px;" value="登录"
+                                onclick='onSignin()' />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</body>
+
+<script lang="javascript">
+    function onSignin() {
+        var username = document.getElementById('username');
+        var password = document.getElementById('password');
+        $.ajax({
+            url: "/user/signin",
+            type: "POST",
+            data: {
+                "username": username.value,
+                "password": password.value
+            },
+            error: function (err) {
+                alert(err);
+            },
+            success: function (body) {
+                var resp = JSON.parse(body);
+                localStorage.setItem("token", resp.data.Token)
+                localStorage.setItem("username", resp.data.Username)
+                setTimeout(()=>{
+                    window.location.href = resp.data.Location;
+                }, 200);
+            }
+        });
+    }
+</script>
+
+</html>
