@@ -1,4 +1,4 @@
-## 配置 Ceph (可参考 charter7, 不用 Ceph 则可跳过)
+## 配置 Ceph (不用 Ceph 则可跳过)
 
 ## 配置 OSS 连接参数 (config/oss.go)
 
